@@ -56,7 +56,9 @@ public class BranchController {
     }
 
     @PostMapping
-    public Mono<ResponseEntity<ResponseModel<BranchEntity>>> saveBranch(@Valid @RequestBody SaveBranchDto dto) {
+    public Mono<ResponseEntity<ResponseModel<BranchEntity>>> saveBranch(
+            @Valid @RequestBody SaveBranchDto dto
+    ) {
         return branchService.save(dto)
                 .map( branch -> ResponseEntity
                         .status(HttpStatus.CREATED)
@@ -82,7 +84,8 @@ public class BranchController {
     @PutMapping("/{id}")
     public Mono<ResponseEntity<ResponseModel<BranchEntity>>> updateBranchName(
             @PathVariable Integer id,
-            @Valid @RequestBody UpdateBranchNameDto dto) {
+            @Valid @RequestBody UpdateBranchNameDto dto
+    ) {
         Mono<ResponseEntity<ResponseModel<BranchEntity>>> res = branchService.updateName(id, dto)
                 .map( branch -> ResponseEntity.ok(
                         ResponseModel.success(
@@ -95,7 +98,9 @@ public class BranchController {
     }
 
     @DeleteMapping("/{id}")
-    public Mono<ResponseEntity<ResponseModel<Void>>> deleteById(@PathVariable Integer id) {
+    public Mono<ResponseEntity<ResponseModel<Void>>> deleteById(
+            @PathVariable Integer id
+    ) {
         return branchService.deleteById(id)
                 .then(Mono.just(ResponseEntity.ok(
                         ResponseModel.<Void>success(
@@ -113,7 +118,9 @@ public class BranchController {
     }
 
     @DeleteMapping("/name/{name}")
-    public Mono<ResponseEntity<ResponseModel<Void>>> deleteByName(@PathVariable String name) {
+    public Mono<ResponseEntity<ResponseModel<Void>>> deleteByName(
+            @PathVariable String name
+    ) {
         return branchService.deleteByName(name)
                 .then(Mono.just(ResponseEntity.ok(
                         ResponseModel.<Void>success(

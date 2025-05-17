@@ -17,7 +17,7 @@ public class SaveBranchDto {
     @NotBlank(message = "Branch name is required, cannot be blank")
     @NotNull(message = "Branch name is required, cannot be null")
     @NotEmpty(message = "Branch name is required, cannot be empty")
-    public String nombreSucursal;
+    private String nombreSucursal;
 
     @NotBlank(message = "franquiciaId name is required, cannot be blank")
     @NotNull(message = "franquiciaId name is required, cannot be null")
