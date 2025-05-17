@@ -1,4 +1,4 @@
-package com.accenture.santiago.franchise.app.product.entity;
+package com.accenture.santiago.franchise.app.branch.entity;
 
 import lombok.*;
 import org.springframework.data.annotation.Id;
@@ -9,13 +9,12 @@ import org.springframework.data.relational.core.mapping.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table("product")
-public class ProductEntity {
+@Table("branch") // sucursal
+public class BranchEntity {
 
     @Id
-    private Integer idProduct;
+    private Integer idBranch;
 
-    private Integer branchId;
+    private Integer franchiseId;
     private String name;
-    private Long stock;
 }

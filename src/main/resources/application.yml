@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: franchise
+  r2dbc:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    name: ${DB_NAME}
+server:
+  port: 8080
+#logging:
+  #level:
+    # org.springframework.r2dbc.core: DEBUG
+    # io.r2dbc.postgresql: DEBUG
