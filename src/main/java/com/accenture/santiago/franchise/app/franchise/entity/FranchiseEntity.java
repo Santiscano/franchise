@@ -16,5 +16,4 @@ public class FranchiseEntity {
     private Integer idFranchise;
 
     private String name;
-    private Boolean isActive;
 }

@@ -12,15 +12,10 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class SaveBranchDto {
+public class UpdateBranchNameDto {
 
     @NotBlank(message = "Branch name is required, cannot be blank")
     @NotNull(message = "Branch name is required, cannot be null")
     @NotEmpty(message = "Branch name is required, cannot be empty")
     public String nombreSucursal;
-
-    @NotBlank(message = "franquiciaId name is required, cannot be blank")
-    @NotNull(message = "franquiciaId name is required, cannot be null")
-    @NotEmpty(message = "franquiciaId name is required, cannot be empty")
-    private Integer franquiciaId;
 }

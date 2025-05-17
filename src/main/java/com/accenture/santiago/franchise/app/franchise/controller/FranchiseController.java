@@ -61,12 +61,11 @@ public class FranchiseController {
 
     // ========================= FIND ALL =========================
     @GetMapping
-    public Mono<ResponseEntity<ResponseModel<List<FranchiseEntity>>>> findAll() {
+    public Flux<ResponseEntity<ResponseModel<FranchiseEntity>>> findAll() {
         return franchiseService.findAll()
-                .collectList()
                 .map(list -> ResponseEntity.ok(
                         ResponseModel.success(HttpStatus.OK, list, "Franchises retrieved successfully")))
-                .onErrorResume(e -> Mono.just(ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .onErrorResume(e -> Flux.just(ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                         .body(ResponseModel.error(HttpStatus.INTERNAL_SERVER_ERROR, Map.of("error", e.getMessage())))));
     }
 
