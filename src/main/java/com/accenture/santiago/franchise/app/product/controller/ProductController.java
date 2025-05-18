@@ -2,9 +2,11 @@ package com.accenture.santiago.franchise.app.product.controller;
 
 import com.accenture.santiago.franchise.app.product.dto.SaveProductDto;
 import com.accenture.santiago.franchise.app.product.dto.UpdateProductNameDto;
+import com.accenture.santiago.franchise.app.product.dto.UpdateProductStockDto;
 import com.accenture.santiago.franchise.app.product.entity.ProductEntity;
 import com.accenture.santiago.franchise.app.product.service.ProductService;
 import com.accenture.santiago.franchise.handleResponse.ResponseModel;
+import com.accenture.santiago.franchise.handleResponse.exceptions.NotFoundException;
 import com.accenture.santiago.franchise.utils.ResponseUtils;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -90,7 +92,7 @@ public class ProductController {
                 });
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/name/{id}")
     public Mono<ResponseEntity<ResponseModel<ProductEntity>>> updateProductName(
             @PathVariable Integer id,
             @Valid @RequestBody UpdateProductNameDto dto
@@ -106,6 +108,21 @@ public class ProductController {
         return ResponseUtils.handleMonoResponse(res, "Product not found");
     }
 
+    @PutMapping("/stock/{id}")
+    public Mono<ResponseEntity<ResponseModel<ProductEntity>>> updateProductStock(
+            @PathVariable Integer id,
+            @Valid @RequestBody UpdateProductStockDto dto
+    ) {
+        return productService.updateStock(id, dto)
+                .map( prod -> ResponseEntity.ok(
+                        ResponseModel.success(
+                                HttpStatus.OK,
+                                prod,
+                                "Product stock updated successfully"
+                        )
+                ));
+    }
+
     @DeleteMapping("/{id}")
     public Mono<ResponseEntity<ResponseModel<Void>>> deleteById(
             @PathVariable Integer id
@@ -118,6 +135,15 @@ public class ProductController {
                                 "Product deleted successfully"
                         )
                 )))
+                .onErrorResume(NotFoundException.class, e ->
+                        Mono.just(ResponseEntity.status(HttpStatus.NOT_FOUND)
+                                .body(ResponseModel.error(
+                                        HttpStatus.NOT_FOUND,
+                                        Map.of("error", e.getMessage()),
+                                        "Product not found"
+                                ))
+                        )
+                )
                 .onErrorResume(e -> Mono.just(ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                         .body(ResponseModel.error(
                                 HttpStatus.INTERNAL_SERVER_ERROR,

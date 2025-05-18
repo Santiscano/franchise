@@ -16,7 +16,8 @@ CREATE TABLE branch (
 CREATE TABLE product (
     id_product INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     branch_id INTEGER NOT NULL,
-    name VARCHAR(45) NOT NULL UNIQUE,
+    name VARCHAR(45) NOT NULL,
     stock BIGINT,
-    CONSTRAINT fk_product_branch FOREIGN KEY (branch_id) REFERENCES branch(id_branch)
+    CONSTRAINT fk_product_branch FOREIGN KEY (branch_id) REFERENCES branch(id_branch),
+    CONSTRAINT unique_product_name_per_branch UNIQUE (branch_id, name)
 );

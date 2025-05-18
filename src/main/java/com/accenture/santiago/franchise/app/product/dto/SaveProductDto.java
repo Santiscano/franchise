@@ -12,9 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class SaveProductDto {
 
-    @NotBlank(message = "Sucursal ID is required, cannot be blank")
     @NotNull(message = "Sucursal ID is required, cannot be null")
-    @NotEmpty(message = "Sucursal ID is required, cannot be empty")
     @Positive(message = "Sucursal ID must be a positive number")
     private Integer sucursalId;
 
@@ -25,7 +23,5 @@ public class SaveProductDto {
 
     @PositiveOrZero(message = "Stock must be a positive number or zero")
     @NotNull(message = "Stock is required, cannot be null")
-    @NotBlank(message = "Stock is required, cannot be blank")
-    @NotEmpty(message = "Stock is required, cannot be empty")
     private Long existencias;
 }

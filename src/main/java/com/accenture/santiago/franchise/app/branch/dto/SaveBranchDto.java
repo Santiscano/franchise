@@ -3,6 +3,7 @@ package com.accenture.santiago.franchise.app.branch.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,8 +20,7 @@ public class SaveBranchDto {
     @NotEmpty(message = "Branch name is required, cannot be empty")
     private String nombreSucursal;
 
-    @NotBlank(message = "franquiciaId name is required, cannot be blank")
     @NotNull(message = "franquiciaId name is required, cannot be null")
-    @NotEmpty(message = "franquiciaId name is required, cannot be empty")
+    @Positive(message = "franquiciaId name must be positive")
     private Integer franquiciaId;
 }

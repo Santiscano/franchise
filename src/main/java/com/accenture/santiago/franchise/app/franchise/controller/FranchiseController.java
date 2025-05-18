@@ -96,7 +96,8 @@ public class FranchiseController {
     @PutMapping("/{id}")
     public Mono<ResponseEntity<ResponseModel<FranchiseEntity>>> updateFranchiseName(
             @PathVariable Integer id,
-            @Valid @RequestBody UpdateFranchiseNameDto dto) {
+            @Valid @RequestBody UpdateFranchiseNameDto dto
+    ) {
 
         return franchiseService.updateName(id, dto)
                 .map(updated -> ResponseEntity.ok(
