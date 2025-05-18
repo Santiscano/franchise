@@ -83,4 +83,11 @@ public class ProductServiceImpl implements ProductService{
                 .switchIfEmpty(Mono.error(new NotFoundException("Product not found")))
                 .flatMap(productRepository::delete);
     }
+
+
+
+
+    public Flux<ProductEntity> reportTopStockProductsByFranchiseId(Integer franchiseId) {
+        return productRepository.findTopStockProductsByFranchiseId(franchiseId);
+    }
 }

@@ -20,4 +20,8 @@ public interface ProductService {
 
     Mono<Void> deleteById(Integer id);
     Mono<Void> deleteByName(String name);
+
+
+
+    Flux<ProductEntity> reportTopStockProductsByFranchiseId(Integer franchiseId);
 }

@@ -12,6 +12,7 @@ public interface FranchiseService {
     Mono<FranchiseEntity> findByName(String name);
     Flux<FranchiseEntity> findAll();
 
+
     Mono<FranchiseEntity> save(SaveFranchiseDto saveFranchiseDto);
 
     Mono<FranchiseEntity> updateName(Integer id, UpdateFranchiseNameDto dto);

@@ -17,6 +17,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -170,5 +171,15 @@ public class ProductController {
                                 Map.of("error", e.getMessage()))
                         )
                 ));
+    }
+
+
+
+    @GetMapping("/top-stock/{franchiseId}")
+    public  Flux<ProductEntity> reportTopStockProductsByFranchiseId(
+            @PathVariable Integer franchiseId
+    ) {
+        return productService.reportTopStockProductsByFranchiseId(franchiseId);
+
     }
 }
