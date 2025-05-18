@@ -43,16 +43,8 @@ public class BranchController {
     }
 
     @GetMapping
-    public Flux<ResponseEntity<ResponseModel<BranchEntity>>> findAll() {
-        Flux<ResponseEntity<ResponseModel<BranchEntity>>> res = branchService.findAll()
-                .map(branch -> ResponseEntity.ok(
-                        ResponseModel.success(
-                                HttpStatus.OK,
-                                branch,
-                                "Branches retrieved successfully"
-                        )
-                ));
-        return ResponseUtils.handleFluxResponse(res, "Branches not found");
+    public Flux<BranchEntity> findAll() {
+        return branchService.findAll();
     }
 
     @PostMapping

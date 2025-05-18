@@ -1,6 +1,7 @@
 package com.accenture.santiago.franchise.app.product.service;
 
 import com.accenture.santiago.franchise.app.branch.repository.BranchRepository;
+import com.accenture.santiago.franchise.app.franchise.repository.FranchiseRepository;
 import com.accenture.santiago.franchise.app.product.dto.SaveProductDto;
 import com.accenture.santiago.franchise.app.product.dto.UpdateProductNameDto;
 import com.accenture.santiago.franchise.app.product.dto.UpdateProductStockDto;
@@ -18,6 +19,7 @@ public class ProductServiceImpl implements ProductService{
 
     private final ProductRepository productRepository;
     private final BranchRepository branchRepository;
+    private final FranchiseRepository franchiseRepository;
 
     @Override
     public Mono<ProductEntity> findById(Integer id) {
@@ -88,6 +90,13 @@ public class ProductServiceImpl implements ProductService{
 
 
     public Flux<ProductEntity> reportTopStockProductsByFranchiseId(Integer franchiseId) {
-        return productRepository.findTopStockProductsByFranchiseId(franchiseId);
+        return franchiseRepository.findById(franchiseId)
+                .switchIfEmpty(Mono.error(new NotFoundException("Franchise not found")))
+                .flatMapMany( f ->
+                    productRepository.findTopStockProductsByFranchiseId(franchiseId)
+                            .switchIfEmpty(
+                                    Mono.error(new NotFoundException("No products found for this franchise"))
+                            )
+                );
     }
 }

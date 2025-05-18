@@ -5,6 +5,7 @@ import com.accenture.santiago.franchise.app.franchise.dto.UpdateFranchiseNameDto
 import com.accenture.santiago.franchise.app.franchise.entity.FranchiseEntity;
 import com.accenture.santiago.franchise.app.franchise.service.FranchiseService;
 import com.accenture.santiago.franchise.handleResponse.ResponseModel;
+import com.accenture.santiago.franchise.utils.ResponseUtils;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -61,12 +62,8 @@ public class FranchiseController {
 
     // ========================= FIND ALL =========================
     @GetMapping
-    public Flux<ResponseEntity<ResponseModel<FranchiseEntity>>> findAll() {
-        return franchiseService.findAll()
-                .map(list -> ResponseEntity.ok(
-                        ResponseModel.success(HttpStatus.OK, list, "Franchises retrieved successfully")))
-                .onErrorResume(e -> Flux.just(ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                        .body(ResponseModel.error(HttpStatus.INTERNAL_SERVER_ERROR, Map.of("error", e.getMessage())))));
+    public Flux<FranchiseEntity> findAll() {
+        return franchiseService.findAll();
     }
 
     @PostMapping
