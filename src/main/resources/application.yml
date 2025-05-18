@@ -8,7 +8,4 @@ spring:
     name: ${DB_NAME}
 server:
   port: 8080
-#logging:
-  #level:
-    # org.springframework.r2dbc.core: DEBUG
-    # io.r2dbc.postgresql: DEBUG
+

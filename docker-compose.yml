@@ -1,34 +1,14 @@
 version: "3.8"
 
 services:
-  postgres:
-    image: postgres:16
-    container_name: postgres_db
-    restart: always
-    environment:
-      POSTGRES_DB: franchise_db
-      POSTGRES_USER: franchise_user
-      POSTGRES_PASSWORD: franchise_pass
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
   franchise-app:
     build:
       context: .
       dockerfile: Dockerfile
     container_name: franchise_app
-    depends_on:
-      - postgres
-    environment:
-      SPRING_R2DBC_URL: r2dbc:postgresql://postgres:5432/franchise_db
-      SPRING_R2DBC_USERNAME: franchise_user
-      SPRING_R2DBC_PASSWORD: franchise_pass
-      SPRING_PROFILES_ACTIVE: docker
+    env_file:
+      - .env
     ports:
       - "8080:8080"
     restart: always
 
-volumes:
-  postgres_data:
