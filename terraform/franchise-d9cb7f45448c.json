@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "eco-mark",
+  "private_key_id": "d9cb7f45448c6568101e7011c64c990e997dc24a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC3YKjNYQhCRkRi\nq5co5SVqfuVETug3tS2RfPy9MZQcg7mEWvqJLa8aRrc9uYNPgLl4hM21+jIUwpv4\n7KDUxK2p8fa36ektbSdcVyD8AUnO7s9PB3Ly7tFO1pYfdCUlpDOm5tTY8ciB1QGP\nwP9Fi0B3Lrtf8PhMZIHr+DLmp8j4OFPQhtDJMH6KphNa/jc4zQ+ZUwiKUue5r1sp\np6BkS158lNFuNJEH38HQzkRISQcBmGHIvhe1yngLE+VeoXgdktC8/1dbrG8ueUaV\npMBlbq8JeiqVoOnJAgXv+cNNssYZYfFLX2Tqgy4cjMHRynukXsR8Z1LfhLLdUNWV\ngu9ck8FrAgMBAAECggEAAOdeDZ0T0FfOUHouBYqTk6HKeXq2FEg1UElAaaJL65QO\nnwNfxrtN6KA+mPRIHGUzBNAKv4HbK1UGNcTcyg+qF3NU1vU1K/8kuYTIadWLypRM\nu0P7Ig1hRLU0CjWlVTko9AKhO+x9I36sQkweNfaIu82kKMXkQ2Qfa81OWuqqx+Zl\nAZ0y4KTzyjjRk06jqjxmNwpNpxZBz8okFkcq8f7kc9jKmQM1AjRd3ujlsbx1Tj6k\nT90kFZEmKQE9l04PO3UhGb2jXPYw1jVIu6jK3jfwCHS+ObOk2RCgA8f4m1GfRJTK\nRcAyxEoo8SO5oXB4CUwWiYpFH08tnek8YfnzCVY/UQKBgQD+NeAMesROiCJ9Ev8l\nZVGZLYC7fmRbAyxQ7GPhmMsbiMDCcL3x4CkVAxuCQA+5IEPKHbi8IIZU820LZzV6\n2/D9m7B52dBKSvL5aeFxVWgkwRN3FJWSrrFiwYvW+Q4qzq7NjM72QwWWUzw0aCIA\nVQIlaolH8UGSWS861b1HXJPMwwKBgQC4qyIEoPwXTVNmoJgOwTPGH1LwzJkIURm5\n25OeK4fU/fA9HVIlkNPwvtLGSRf7sDuU47oa0ubUgYnYvddaXquvkUR6wNOV6PoQ\nMBoS0ZEKXfpfI5/oX6+uv3sW5ktfsBpKJs9teZRk0xbggJBT3e0ADtmOCcOU9AAV\nbd/NBh2OOQKBgQDInqoQDz8nnwZg4QIdeCV6ls+WqLv4m7t4reZxnw0D0NwXV7R/\n0+F4JLisBXSjLFRziRtG1QBOwMHZEv3A1R0OeLVApOZeC2JP9gCmWbnT79A11Tfp\nyBZUEt0SrgFBRVXtAGhBL0mUhmHoFhpnWq9T6g0nir2uCtZcP1yemfBG0wKBgAnn\ni9SJuduaFx4LAPzRmfBHX9BweMi8aM/SGhHCre9bi1YLy4seQG/KHE3sP7ANHLT4\nndOwehbtt7H7RKChMT4iYXTgALkqnLbfjZZyzP+sWLBfncT91NNfi7+HrIU+Ubqm\naDur6Kybsb9qxdLptTtqkHqQxX+ospRzpyw85rrpAoGBAIrnbl9bp5CPUd5hoQKT\nGvYJD8miZmzS1Y3ZarldK/ujdg/Et/rl3umRJV+rtfimRgECY/aKG9SlhSNqVZC7\n6HqYgIvAlR/6zPhWtd1/3sXcVrbdVm3NaDKMXMJb9vRf7mQRDGbDooI1uXSEHFHa\nEfpDIX2I4geQ3s6KbX75H5KB\n-----END PRIVATE KEY-----\n",
+  "client_email": "accenture-cloud-run@eco-mark.iam.gserviceaccount.com",
+  "client_id": "109988161135252450558",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/accenture-cloud-run%40eco-mark.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

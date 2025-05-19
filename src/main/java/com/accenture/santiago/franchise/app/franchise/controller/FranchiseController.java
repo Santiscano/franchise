@@ -5,7 +5,6 @@ import com.accenture.santiago.franchise.app.franchise.dto.UpdateFranchiseNameDto
 import com.accenture.santiago.franchise.app.franchise.entity.FranchiseEntity;
 import com.accenture.santiago.franchise.app.franchise.service.FranchiseService;
 import com.accenture.santiago.franchise.handleResponse.ResponseModel;
-import com.accenture.santiago.franchise.utils.ResponseUtils;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
