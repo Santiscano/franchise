@@ -67,6 +67,14 @@ public class ProductController {
         return ResponseUtils.handleFluxResponse(res, "Products not found");
     }
 
+    @GetMapping("/top-stock/{franchiseId}")
+    public  Flux<ProductEntity> reportTopStockProductsByFranchiseId(
+            @PathVariable Integer franchiseId
+    ) {
+        return productService.reportTopStockProductsByFranchiseId(franchiseId);
+
+    }
+
     @PostMapping
     public Mono<ResponseEntity<ResponseModel<ProductEntity>>> saveProduct(
             @Valid @RequestBody SaveProductDto dto
@@ -171,15 +179,5 @@ public class ProductController {
                                 Map.of("error", e.getMessage()))
                         )
                 ));
-    }
-
-
-
-    @GetMapping("/top-stock/{franchiseId}")
-    public  Flux<ProductEntity> reportTopStockProductsByFranchiseId(
-            @PathVariable Integer franchiseId
-    ) {
-        return productService.reportTopStockProductsByFranchiseId(franchiseId);
-
     }
 }

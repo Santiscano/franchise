@@ -1,4 +1,7 @@
 .env
+/terraform/franchise-d9cb7f45448c.json
+
+
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
